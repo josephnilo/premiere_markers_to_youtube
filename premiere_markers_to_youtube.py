@@ -9,6 +9,10 @@ Simply copy the text from the output file and paste it into the
 YouTube description
 """
 
+# TODO: Copy to clipboard at the end
+# TODO: Add a check to see if the file exists
+# TODO: Add a check to make sure there is a chapter at 0:00
+
 
 with open(
     sys.argv[1],
