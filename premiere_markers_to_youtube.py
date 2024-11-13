@@ -13,7 +13,6 @@ YouTube description
 # TODO: Add a check to see if the file exists
 # TODO: Add a check to make sure there is a chapter at 0:00
 
-
 with open(
     sys.argv[1],
     "r",
@@ -26,11 +25,10 @@ filename = sys.argv[1]
 filename = filename.split("/")[-1]
 file_directory = sys.argv[1].split(filename)[0]
 
-
 # remove first line from list
 data.pop(0)
 
-# removes tabs fron data by index
+# removes tabs from data by index
 for line in data:
     del line[0:3]
 
@@ -65,8 +63,10 @@ with open("new_file.txt", "w") as final_file:
 os.rename("new_file.txt", filename + "_markers.txt")
 
 # move file to directory
-os.rename(
-    filename + "_markers.txt", file_directory + filename + "_markers.txt"
-)
+os.rename(filename + "_markers.txt", file_directory + filename + "_markers.txt")
 
+# remove temporary file
 os.remove("temp_file.txt")
+
+# delete the original file after creating "_markers" file
+os.remove(sys.argv[1])
